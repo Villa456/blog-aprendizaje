@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizaje que Inspira: Blog Docente</title>
+    <!-- Carga de Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de la nueva paleta de colores Material You y fuente Inter --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Paleta Material You Style (Azul y Amarillo vibrante para acento)
+                        'primary-material': '#3B82F6', // Blue-500 (Azul claro pero profundo)
+                        'accent-material': '#FBBF24', // Amber-400 (Amarillo vibrante, mejor contraste)
+                        'dark-text': '#1F2937', // Texto oscuro
+                        'surface-light': '#FFFFFF', // Superficie base
+                        'surface-elevated': '#EFF6FF', // Fondo sutil (Blue-50)
+                    },
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                },
+            }
+        }
+    </script>
+    <style>
+        /* Estilos generales para asegurar que el contenido se vea bien */
+        body {
+            background-color: #F3F4F6; /* Fondo muy claro */
+        }
+        /* Clase para ocultar secciones, manejada por JS */
+        .content-section {
+            display: none;
+        }
+        /* Estilo para el botón de la pestaña activa (Estilo Material Pill con elevación) */
+        .tab-active {
+            color: #1F2937 !important; /* Texto oscuro para el acento amarillo */
+            background-color: #FBBF24 !important; /* Accent-material (Amarillo) */
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 700;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* Sombra para elevar */
+            border: 1px solid rgba(251, 191, 36, 0.3) !important; /* Borde sutil del mismo color */
+        }
+        /* Estilo base para todos los botones de pestaña */
+        .tab-button {
+            padding: 0.6rem 1.25rem; /* Más grandes */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Curva de transición suave */
+            border: 1px solid transparent;
+        }
+        /* Efecto hover suave para las pestañas */
+        .tab-button:not(.tab-active):hover {
+            background-color: #EFF6FF; /* surface-elevated */
+            color: #3B82F6; /* primary-material */
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Encabezado (Flotante y muy redondeado en la parte inferior) --><header class="bg-primary-material shadow-2xl sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-primary-material text-white rounded-b-[2rem] shadow-xl">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                Aprendizaje que inspira
+            </h1>
+            <p class="text-xl text-accent-material mt-2 font-medium opacity-90">Formando estudiantes con valores para el futuro</p>
+        </div>
+        
+        <!-- Navegación por Pestañas (Elevada sobre la sección principal) --><nav class="bg-surface-light border-t border-blue-200 z-10">
+            <div id="tabs-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-2 overflow-x-auto whitespace-nowrap py-3">
+                <!-- Los botones son más grandes y redondeados --><button onclick="showSection('home', this)" data-section="home" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Inicio</button>
+                <button onclick="showSection('justification', this)" data-section="justification" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Justificación</button>
+                <button onclick="showSection('concept', this)" data-section="concept" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Concepto de Evaluación</button>
+                <button onclick="showSection('objectives', this)" data-section="objectives" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Objetivos</button>
+                <button onclick="showSection('instruments', this)" data-section="instruments" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Instrumentos de Evaluación</button>
+                <button onclick="showSection('reflection', this)" data-section="reflection" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Reflexión</button>
+                <button onclick="showSection('conclusion', this)" data-section="conclusion" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Conclusión</button>
+                <button onclick="showSection('references', this)" data-section="references" class="tab-button text-sm text-dark-text hover:text-primary-material rounded-full">Referencias</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal --><main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+        
+        <!-- Sección 1: Inicio (Home) - Tarjeta Material You --><div id="home" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-2xl border-t-8 border-primary-material">
+            <h2 class="text-4xl font-bold text-dark-text mb-6 border-b pb-2 border-accent-material/30">
+                ¡Bienvenidos a Aprendizaje que inspira!
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed">
+                Este espacio está pensado para docentes que quieren transformar sus clases en experiencias significativas. Podrás encontrar estrategias, recursos y herramientas innovadoras para enseñar con creatividad y fortalecer valores que acompañen a tus estudiantes toda la vida.
+            </p>
+            <div class="mt-8 p-6 bg-surface-elevated/80 border border-primary-material/30 rounded-2xl">
+                <p class="text-xl text-dark-text leading-relaxed font-extrabold text-center">
+                    ¡Explora, aprende y deja que la enseñanza inspire tu práctica educativa! 
+                </p>
+            </div>
+        </div>
+
+        <!-- Sección 2: Justificación --><div id="justification" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Justificación</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+               En este blog “Aprendizaje que inspira: formando estudiantes con valores para el futuro” surge como un instrumento didáctico innovador, orientado a fortalecer la practica educativa mediante la evaluación como proceso transformador.
+            Reconociendo que el aprendizaje no se limita únicamente en la adquisición de conocimientos, sino que incluye a su vez la construcción de competencias significativas y valores que guíen la vida del estudiante, en este blog encontraras estrategias, técnicas e instrumentos innovadores para facilitar la enseñanza y el aprendizaje. 
+
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Desde un enfoque en el aprendizaje activo y por descubrimiento, se busca motivar a los estudiantes como protagonistas de su propio proceso educativo, mientras los docentes actúan como guías facilitadores, proporcionando las herramientas necesarias para una educación significativa, inclusiva y orientada al futuro. De esta manera, el blog se convierte en un recurso clave para que los educadores diseñen experiencias de aprendizaje que no solo desarrollen conocimientos, sino también valores, competencias y habilidades para la vida.
+            </p>
+            <p class="text-gray-700 leading-relaxed mt-6 p-4 bg-accent-material/20 border-l-4 border-accent-material rounded-xl font-medium">
+                Esta dirigido principalmente a docentes de educación básica primaria y secundaria, incluyendo aquellos que trabajan en contextos multigrado o con poblaciones diversas, con el propósito de brindar herramientas didácticas que promuevan la construcción de aprendizajes significativos y la formación integral de los estudiantes. 
+            </p>
+        </div>
+
+        <!-- Sección 3: Concepto de Evaluación desde Autores --><div id="concept" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Concepto de Evaluación desde Autores</h2>
+            <p class="text-gray-700 leading-relaxed mb-6 italic p-4 bg-surface-elevated rounded-2xl border-2 border-primary-material/20">
+                La evaluación, desde una perspectiva pedagógica y crítica, es un proceso intencionado, sistemático y reflexivo orientado a recolectar información relevante sobre los aprendizajes para interpretar, verificar e integrar los resultados en la mejora del proceso educativo.
+            </p>
+            
+            <!-- TEXTO CONTINUO DE AUTORES (SIN PARÁFRASIS O CORTES) -->
+            <div class="mt-6 text-dark-text leading-relaxed">
+                <p>
+                    Según Piaget (1970), el aprendizaje implica la construcción activa del conocimiento, por lo que la evaluación debe acompañar ese desarrollo cognitivo. En la misma línea, Vygotsky (1978) resalta la mediación social y el papel del docente como facilitador en la zona de desarrollo próximo. Stiggins (2025) plantea la evaluación como una practica formativa que involucra al estudiante y promueve la autorregulación, mientras que el CAST (2018) subraya la importancia de emplear medios de evaluación diversos e inclusivos según el Diseño Universal para el aprendizaje. Para el Ministerio de Educación Nacional (2016), este proceso debe ser integral, continuo y basado en competencias, garantizando la coherencia entre lo que se enseña y lo que se evalúa. Finalmente, Perrenoud (2000) y Hernández, Fernández y Baptista (2014) enfatizan que la evaluación requiere intencionalidad, reflexión y rigor metodológico, al construirse en una práctica ética que orienta la transformación educativa.
+                </p>
+            </div>
+
+            <p class="text-dark-text leading-relaxed mt-8 font-medium bg-primary-material/20 p-4 rounded-xl border border-primary-material/50">
+                En síntesis, la evaluación es un acto pedagógico intencionado y critico que busca comprender, valorar y fortalecer el aprendizaje desde la diversidad y la inclusión. 
+            </p>
+        </div>
+
+        <!-- Sección 4: Objetivos --><div id="objectives" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Objetivos del Blog</h2>
+            
+            <div class="mb-8 p-6 bg-surface-elevated rounded-2xl shadow-md">
+                <h3 class="text-2xl font-bold text-primary-material mb-3">Objetivo General</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Brindar a los docentes un recurso didáctico innovador que permita diseñar y aplicar procesos de evaluación transformadora, fomentando aprendizajes significativos y la formación de valores en los estudiantes, para prepararlos de manera integral hacia el futuro.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-dark-text mb-4">Objetivos Específicos</h3>
+                <ul class="space-y-4 list-none text-gray-700">
+                    <li class="flex items-start p-3 bg-white rounded-xl shadow-sm border border-primary-material/20">
+                        <svg class="w-6 h-6 mr-3 text-accent-material flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Proporcionar a los docentes estrategias, técnicas e instrumentos de evaluación innovadores e inclusivos, adaptables a diferentes contextos educativos y necesidades de los estudiantes.
+                    </li>
+                    <li class="flex items-start p-3 bg-white rounded-xl shadow-sm border border-primary-material/20">
+                        <svg class="w-6 h-6 mr-3 text-accent-material flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Promover la evaluación como herramienta reflexiva y transformadora, que potencie la autonomía y el protagonismo de los estudiantes en la construcción de aprendizajes significativos.
+                    </li>
+                    <li class="flex items-start p-3 bg-white rounded-xl shadow-sm border border-primary-material/20">
+                        <svg class="w-6 h-6 mr-3 text-accent-material flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Fomentar el desarrollo de competencias académicas, éticas y sociales, integrando valores para la vida y principios del Diseño Universal para el Aprendizaje (DUA) y marcos legales vigentes (DBA y EBC).
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sección 5: Instrumentos de Evaluación - Tarjetas de colores por tipo --><div id="instruments" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-8 border-b pb-2 border-primary-material/30">Instrumentos de Evaluación</h2>
+
+            <!-- Bloque: Rúbrica de Autoevaluación (Convencional - Tono Azul Suave) --><div class="mb-8 p-6 rounded-2xl shadow-md border-t-4 border-blue-400 bg-surface-elevated">
+                <h3 class="text-2xl font-bold text-blue-700 mb-2 pb-1">RÚBRICA DE AUTOEVALUACIÓN DEL ESTUDIANTE<span class="text-sm font-normal text-blue-500"> (Convencional)</span></h3>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Actividad:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Los estudiantes del curso de evaluación diseñan y aplican una rúbrica de autoevaluación para valorar su propio proceso académico. Cada estudiante analiza su participación, cumplimiento, reflexión crítica y compromiso con la mejora continua. El docente orienta la actividad y facilita la comprensión de los criterios institucionales establecidos.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Tecnica:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Autoevaluación.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Instrumento:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Rubrica.</p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Objetivo:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Promover la autorreflexión y la responsabilidad del estudiante frente a su proceso formativo, identificando fortalezas, debilidades y acciones de mejora, de acuerdo con los lineamientos institucionales de evaluación</p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Que es:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Un instrumento de evaluación que presenta criterios y niveles de desempeño claro, permitiendo que el estudiante valore su propio aprendizaje y reflexiones sobre su progreso. La rúbrica de evaluación ayuda al estudiante a reconocer su nivel de logro, comprender las expectativas del curso y fortalecer su autonomía.</p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Evaluación:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Se realiza mediante la aplicación individual de la rúbrica, considerando criterios como participación activa, cumplimiento, mejora continua, reflexión critica y compromiso.</p>
+            </div>
+            
+            <!-- Bloque: Rincón de Desafíos Matemáticos (No Convencional - Tono Amarillo/Naranja) --><div class="mb-8 p-6 rounded-2xl shadow-md border-t-4 border-amber-400 bg-amber-50">
+                <h3 class="text-2xl font-bold text-amber-700 mb-2 pb-1">RINCÓN DE DESAFÍOS MATEMÁTICOS <span class="text-sm font-normal text-amber-500"> (No Convencional / DBA realizado en clase)</span></h3>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Actividad:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Los estudiantes del grado 2° participan en el “Rincón de desafíos matemáticos”, un espacio dentro del aula donde resuelven retos prácticos de suma, resta, división mediante juegos y materiales manipulativos (flashcards de animales, frutas y granos). Los estudiantes pasan por diferentes “rincones”. El docente observa, guía y retroalimenta de manera continua, fomentando la reflexión sobre las estrategias utilizadas para resolver los desafíos. </p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Tecnica:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Observación directa.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Instrumento:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Registro anecdótico/toma de notas.</p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Objetivo:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Evaluar la comprensión y aplicación de las operaciones básicas (suma, resta y división) en situaciones cotidianas, promoviendo el aprendizaje activo, la manipulación de materiales y la interacción grupal como estrategias para fortalecer el pensamiento lógico y la cooperación.</p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Que es:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">Un instrumento de evaluación no convencional que utiliza la observación y la experimentación lúdica como medio para evidenciar aprendizajes matemáticos. A través de este recurso, los niños aprenden haciendo, reflexionan sobre los procedimientos empleados y expresan sus ideas al trabajar en grupo. Se fundamenta en los Derechos Básicos de Aprendizaje de Matemáticas (MEN, 2016), que promueven la resolución de problemas desde la experiencia y la exploración activa. </p>
+                 <p class="font-semibold text-dark-text mt-4 mb-3">Evaluación:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-blue-500 pl-3">formativa, continua y participativa.</p>
+            </div>
+
+            <!-- Bloque: Reto Cotidiano (DUA - Tono Cían) --><div class="mb-8 p-6 rounded-2xl shadow-md border-t-4 border-cyan-400 bg-cyan-50">
+                <h3 class="text-2xl font-bold text-cyan-700 mb-2 pb-1">RETO COTIDIANO <span class="text-sm font-normal text-cyan-500">(Basado en DUA, DISEÑO UNIVERSAL PARA EL APRENDIZAJE )</span></h3>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Actividad:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Los estudiantes del grado 5° deberán resolver un reto cotidiano: “Organiza una cena para tus compañeros con un presupuesto limitado”. 
+                Cada estudiante debe representar su solución con dibujos, flashcards , diapositivas o material reciclable.  El docente acompaña el proceso con orientaciones y apoyos visuales, promoviendo la reflexión y explicación del razonamiento.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Técnica:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Observación.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Instrumento:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Lista de chequeo.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Objetivo:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Fomentar la resolución de problemas matemáticos desde la diversidad, garantizando la comprensión y la participación de todos los estudiantes.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Que es:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Un instrumento que integra el enfoque del DUA, ofreciendo múltiples formas de aprender y demostrar lo aprendido. Se busca que cada estudiante participe según sus capacidades, utilizando distintos medios para expresar y demostrar su pensamiento matemático.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Evaluación:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-cyan-500 pl-3">Se realiza de forma continua, considerando la diversidad de expresiones, incluye autoevaluación y retroalimentación verbal, centrada en los logros individuales y colectivos. </p>
+            </div>
+
+            <!-- Bloque: Video Educativo (Innovador - Tono Naranja) --><div class="p-6 rounded-2xl shadow-md border-t-4 border-orange-400 bg-orange-50">
+                <h3 class="text-2xl font-bold text-orange-700 mb-2 pb-1">VIDEO EDUCATIVO: MI VOZ POR EL CAMBIO <span class="text-sm font-normal text-orange-500">(Innovador y Creativo)</span></h3>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Actividad:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">Los estudiantes del grado 7° en grupos investigan un tema de su interés, elaboran un guion, graban creativamente un episodio máximo de 2 min. De manera educativa explicaran ese tema de interés. 
+                El docente acompaña y retroalimenta durante todo el proceso. Finalizando con la presentación de los videos.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Técnica:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">Observación.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Instrumento:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">Rubrica.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Objetivo:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">Promover la expresión oral y visual a través de recursos tecnológicos, fortaleciendo la comunicación, la empatía y el pensamiento crítico. </p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Que es:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">Un instrumento de evaluación creativo e integrador, donde los estudiantes producen un video corto con mensaje educativo o social, aplicando conocimientos de lenguaje, expresión oral y uso de herramientas digitales.</p>
+                <p class="font-semibold text-dark-text mt-4 mb-3">Evaluación:</p>
+                <p class="text-gray-700 mb-3 ml-4 border-l-2 border-orange-500 pl-3">De manera cualitativa se valora la claridad del mensaje, la creatividad, el trabajo en equipo y la reflexión sobre el tema. Incluye coevaluación y autoevaluación, destacando logros de cada grupo y oportunidades de mejora.</p>
+
+            </div>
+        </div>
+
+        <!-- Sección 6: Reflexión --><div id="reflection" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Reflexión</h2>
+            <p class="text-gray-700 leading-relaxed text-xl italic p-4 bg-primary-material/10 rounded-2xl border-l-4 border-primary-material shadow-inner">
+                Cuando reflexionamos sobre la evaluación nos lleva a reconocerla como una oportunidad de transformación para la enseñanza y el aprendizaje. Evaluar no se basa solo en ponderar o “calificar” por medio de un número, sino de acompañar, escuchar, empatizar y comprender como aprende cada estudiante desde su realidad. A través de instrumentos diversos y estrategias creativas, didácticas y dinámicas el docente se convierte en un guía que promueve la autonomía, la autoevaluación y la construcción colectiva del conocimiento. En este sentido, la evaluación adquiere un valor humano y ético, orientado a formar personas críticas, participativas y conscientes de su proceso formativo propio. 
+            </p>
+            
+        </div>
+
+        <!-- Sección 7: Conclusión --><div id="conclusion" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Conclusión</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                <span class="font-bold text-primary-material">“Aprendizaje que inspira: formando estudiantes con valores para el futuro”</span> demuestra que la evaluación puede ser inclusiva, significativa y motivadora cuando se integra al proceso educativo como una experiencia de crecimiento.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Los instrumentos propuestos (convencionales, no convencionales, basados en el DUA e innovadores) permiten evidenciar que cada estudiante tiene distintas formas de aprender y expresarse.
+            </p>
+            <p class="text-2xl font-extrabold text-dark-text p-6 border rounded-2xl bg-accent-material/50 border-accent-material mt-8 text-center shadow-lg">
+                Como docentes humanos al evaluar desde esta mirada es formar con sentido, valorando la diversidad, fortaleciendo una educación que inspira, transforma y prepara la vida.
+            </p>
+        </div>
+
+        <!-- Sección 8: Referencias Bibliográficas --><div id="references" class="content-section bg-surface-light p-10 md:p-14 rounded-3xl shadow-xl">
+            <h2 class="text-3xl font-bold text-dark-text mb-6 border-b pb-2 border-primary-material/30">Referencias Bibliográficas</h2>
+            
+            <ol class="space-y-4 text-gray-700 list-decimal pl-5">
+                <li class="pb-2">
+                    <span class="font-semibold">Piaget, J. (1970).</span> <cite>Psychology and Pedagogy.</cite> New York: Viking Press.
+                    <p class="text-xs text-gray-600 italic mt-1">Fundamenta el aprendizaje por descubrimiento y la construcción del conocimiento activo.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">Vygotsky, L. S. (1978).</span> <cite>Mind in Society: The Development of Higher Psychological Processes.</cite> Cambridge, MA: Harvard University Press.
+                    <p class="text-xs text-gray-600 italic mt-1">Refuerza la idea de aprendizaje mediado y la importancia del rol del docente como facilitador.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">Stiggins, R. (2005).</span> 3.	Stiggins, R. (2005). Student-Involved Classroom Assessment (4th ed.). Upper Saddle River, NJ: Pearson.
+                    <p class="text-xs text-gray-600 italic mt-1">Aborda la evaluación como herramienta formativa y transformadora.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">CAST (2018).</span> <cite>Universal Design for Learning Guidelines Version 2.2.</cite> Wakefield, MA: CAST.
+                    <p class="text-xs text-gray-600 italic mt-1">Base para la inclusión educativa y adaptación de estrategias de evaluación.</p>
+                </li>
+                
+                <li class="pb-2">
+                    <span class="font-semibold">Ministerio de Educación Nacional. (2016). </span> Decreto 1330 – Lineamientos DBA y EBC. Colombia.
+                    <p class="text-xs text-gray-600 italic mt-1">Normativa oficial sobre competencias básicas y evaluación en Colombia.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">Hernández, R., Fernández, C., & Baptista, P. (2014). </span> Metodología de la investigación (6ª ed.). México: McGraw-Hill.
+                    <p class="text-xs text-gray-600 italic mt-1">Para soporte de diseño de instrumentos y fundamentación metodológica.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">Perrenoud, P. (2000). </span> Desarrollar la práctica reflexiva en el oficio de enseñar. Barcelona: Graó.
+                    <p class="text-xs text-gray-600 italic mt-1">Refuerza la evaluación como proceso reflexivo y transformador.</p>
+                </li>
+                <li class="pb-2">
+                    <span class="font-semibold">OpenAI. (2025).</span> ChatGPT (Versión GPT-5) [Modelo de lenguaje de IA]. OpenAI.
+                    <p class="text-xs text-gray-600 italic mt-1">Parte del texto fue elaborado con apoyo del modelo de lenguaje ChatGPT (Versión GPT – 5) de OpenAI, utilizando para redacción y síntesis conceptual. La autora revisó y validó críticamente el contenido final.</p>
+                </li>
+            </ol>
+        </div>
+
+    </main>
+
+    <!-- Pie de Página (Fondo Oscuro para contraste) --><footer class="bg-dark-text py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-300 text-sm">
+            <p>&copy; 2025 Aprendizaje que inspira. Elida Lucía Escorcia Marín.</p>
+        </div>
+    </footer>
+
+    <!-- Script para la navegación por pestañas y persistencia con localStorage -->
+    <script>
+        /**
+         * Función para mostrar la sección de contenido seleccionada, actualizar el estilo de las pestañas,
+         * y guardar el estado en localStorage.
+         * @param {string} sectionId El ID de la sección (div) a mostrar.
+         * @param {HTMLElement} clickedButton El botón que fue clickeado (o null si se carga desde el estado guardado).
+         */
+        function showSection(sectionId, clickedButton) {
+            // 1. Ocultar todas las secciones de contenido
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // 2. Desactivar el estilo de la pestaña activa en todos los botones
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('tab-active');
+            });
+
+            // 3. Mostrar la sección deseada
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+
+            // 4. Activar el estilo de la pestaña clickeada
+            let buttonToActivate = clickedButton;
+            if (!buttonToActivate) {
+                // Si no se pasó un botón (carga desde localStorage), lo buscamos por el data-section
+                buttonToActivate = document.querySelector(`.tab-button[data-section="${sectionId}"]`);
+            }
+            
+            if (buttonToActivate) {
+                buttonToActivate.classList.add('tab-active');
+            }
+
+            // 5. GUARDAR el ID de la sección activa en localStorage (Persistencia)
+            localStorage.setItem('activeSection', sectionId);
+        }
+
+        // Inicializar al cargar la página: revisa el estado guardado o usa el valor por defecto.
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedSectionId = localStorage.getItem('activeSection');
+            const defaultSectionId = 'home';
+            
+            // Determinar qué sección mostrar: la guardada o la predeterminada
+            const sectionToLoad = savedSectionId || defaultSectionId;
+            
+            // Mostrar la sección cargada (el segundo argumento 'null' indica que no se hizo clic en un botón, sino que se cargó el estado)
+            // Esto también se encarga de aplicar el estilo 'tab-active' al botón correcto.
+            showSection(sectionToLoad, null);
+        });
+    </script>
+</body>
+</html>
